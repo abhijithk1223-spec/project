@@ -12,7 +12,7 @@
 # else:
 #  print("x is not greater than y")
 
-list = ["apple","orange","cherry","kiwi"]
+list = ["apple","orange","cherry","ki"]
 print(list[2:4])
 list[1] = "berry"
 print(list)
