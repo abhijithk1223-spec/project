@@ -14,6 +14,13 @@
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#contact">Contact</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'dashboard' %}">Dashboard</a>
+                    <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                    <a href="{% url 'signup' %}">Signup</a>
+                {% endif %}
             </div>
         </nav>
     </header>
@@ -24,17 +31,18 @@
                 <p class="eyebrow">Python backend + simple frontend</p>
                 <h1>Build and run a clean Django website on localhost.</h1>
                 <p>
-                    This starter page uses Django for routing and templates, with HTML,
-                    CSS, and JavaScript for a friendly frontend.
+                    This starter page now includes login and signup backed by
+                    WAMPServer MySQL tables through Django authentication.
                 </p>
-                <button id="themeButton" class="primary-button" type="button">
-                    Change Theme
-                </button>
+                <div class="hero-actions">
+                    <a class="primary-button" href="{% url 'signup' %}">Create account</a>
+                    <a class="secondary-button" href="{% url 'login' %}">Login</a>
+                </div>
             </div>
             <div class="status-panel" aria-label="Local server status">
                 <span class="status-dot"></span>
-                <strong>Localhost ready</strong>
-                <p>Run the server and open this page in your browser.</p>
+                <strong>MySQL ready</strong>
+                <p>Run migrations and view users in phpMyAdmin's auth_user table.</p>
             </div>
         </section>
 
